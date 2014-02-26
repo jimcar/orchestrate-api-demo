@@ -1,0 +1,5 @@
+{
+  "base_url":"https://api.orchestrate.io/v0",
+  "user":"<api-key-from-orchestrate.io>",
+  "verbose":"true"
+}
