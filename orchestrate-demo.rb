@@ -18,11 +18,6 @@ module Orchestrate
         @collection = Orchestrate::Demo::LibApi.new show_response
         @name = 'films'
         init_film_data @name
-
-      end
-
-      def collection
-        @collection
       end
 
       # -----------------------------------------------------------------------
@@ -49,7 +44,6 @@ module Orchestrate
 
     def self.populate(verbose=false)
       demo = Base.new verbose
-      demo.verbose
       demo.delete_films_example
       demo.populate_films_example
     end
@@ -58,11 +52,9 @@ module Orchestrate
       demo = Base.new
     end
 
-    if ARGV.length > 0
-      if ARGV.first =~ /-p/
-        show_response = (ARGV[1] && ARGV[1] =~ /-s/) ? true : false
-        Orchestrate::Demo.populate show_response
-      end
+    if ARGV.length > 0 && ARGV.first =~ /-p/
+      show_response = (ARGV[1] && ARGV[1] =~ /-s/) ? true : false
+      Orchestrate::Demo.populate show_response
     else
       puts "Usage: orchestrate-demo [options]"
       puts "\nOptions:"
